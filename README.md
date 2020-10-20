@@ -1,5 +1,10 @@
-# COVID-RIVM-script
-Get notified when new number of COVID-19 tests is made available by Dutch RIVM before the news notifies you. It's a quick-and-dirty attempt to be made aware of new statistics, so please don't expect the most beautiful code 😉
+# COVID-RIVM-scripts
+📊 Open source scripts for analyzing daily reports from Dutch National Institute for Public Health and the Environment (RIVM) about confirmed COVID-19 cases.
+
+* Get notified when a new number of COVID-19 tests is made available by Dutch RIVM before the news notifies you. 
+* Find the number of positive COVID-19 tests in any Dutch municipality today / yesterday (and, with some customization, on an arbitrary date)
+
+It's a quick-and-dirty attempt to be made aware of new statistics, so please don't expect the most beautiful code 😉
 
 ## Installing the notifier
 1. Ensure that you have Python 3.x installed on your machine.
