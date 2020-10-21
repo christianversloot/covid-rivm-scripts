@@ -48,11 +48,11 @@ while True:
         differencename = "meer" if higher else "minder"
         break
       else:
-        print('Nothing known, sleeping 20 seconds')
-        time.sleep(20)
+        print('Nothing known, sleeping 60 seconds')
+        time.sleep(60)
     else:
-        print('Nothing known, sleeping 20 seconds')
-        time.sleep(20)
+        print('Nothing known, sleeping 60 seconds')
+        time.sleep(60)
 
 print('====================================================')
 print(f'Aantal besmettingen op {date} = {summed}')

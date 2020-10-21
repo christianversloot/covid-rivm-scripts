@@ -16,7 +16,7 @@ today = today.strftime("%Y-%m-%d") # e.g. '2020-10-20'
 yesterday = yesterday.strftime("%Y-%m-%d") # e.g. '2020-10-19
 
 # Prepare city
-municipality = 'Leiden'
+municipality = 'Amsterdam'
 print('Getting data')
 r = requests.get(url,data=params)
 if r.ok:
