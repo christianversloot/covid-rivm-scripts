@@ -19,7 +19,7 @@ It's a quick-and-dirty attempt to be made aware of new statistics, so please don
 2. The script will automatically stop when new numbers get in and you will be notified by sound.
 
 ## Running the by-municipality reporter
-If new numbers are in, you can also perform a search by municipality name by means of the script `by_municipality.py`. Please make sure to adapt the `municipality` variable and ensure that you have `pandas` and `requests` installed (i.e. `pip install pandas requests`). Then run `python by_municipality.py` et voila!
+If new numbers are in, you can also perform a search by municipality name by means of the script `by_municipality.py`. Please make sure to adapt the `municipalities` variable and ensure that you have `pandas` and `requests` installed (i.e. `pip install pandas requests`). Then run `python by_municipality.py` et voila!
 
 ## License
 [Apache 2.0 License](./LICENSE)

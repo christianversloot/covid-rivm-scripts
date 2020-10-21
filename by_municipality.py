@@ -16,7 +16,7 @@ today = today.strftime("%Y-%m-%d") # e.g. '2020-10-20'
 yesterday = yesterday.strftime("%Y-%m-%d") # e.g. '2020-10-19
 
 # Prepare city
-municipality = 'Amsterdam'
+municipalities = ['Amsterdam', 'Rotterdam', 'Nijmegen', 'Deventer', 'Utrecht']
 print('Getting data')
 r = requests.get(url,data=params)
 if r.ok:
@@ -24,10 +24,11 @@ if r.ok:
   data = r.content.decode('utf8')
   df = pd.read_csv(io.StringIO(data), delimiter=';')
   df_y = df[df['Date_of_publication'] == yesterday]
-  df_y = df_y[df_y['Municipality_name'] == municipality]
   df = df[df['Date_of_publication'] == today]
-  df = df[df['Municipality_name'] == municipality]
-  summed = df['Total_reported'].sum()
-  summed_y = df_y['Total_reported'].sum()
-  print(f'Number of cases in municipality {municipality} on {today} = {summed}')
-  print(f'Number of cases in municipality {municipality} on {yesterday} = {summed_y}')
+  for municipality in municipalities:
+    df_c_y = df_y[df_y['Municipality_name'] == municipality]
+    df_c = df[df['Municipality_name'] == municipality]
+    summed = df_c_y['Total_reported'].sum()
+    summed_y = df_c['Total_reported'].sum()
+    print(f'Number of cases in municipality {municipality} on {today} = {summed}')
+    print(f'Number of cases in municipality {municipality} on {yesterday} = {summed_y}')
