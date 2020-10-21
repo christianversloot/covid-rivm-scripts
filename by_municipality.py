@@ -28,7 +28,7 @@ if r.ok:
   for municipality in municipalities:
     df_c_y = df_y[df_y['Municipality_name'] == municipality]
     df_c = df[df['Municipality_name'] == municipality]
-    summed = df_c_y['Total_reported'].sum()
-    summed_y = df_c['Total_reported'].sum()
+    summed = df_c['Total_reported'].sum()
+    summed_y = df_c_y['Total_reported'].sum()
     print(f'Number of cases in municipality {municipality} on {today} = {summed}')
     print(f'Number of cases in municipality {municipality} on {yesterday} = {summed_y}')
