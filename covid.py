@@ -43,6 +43,10 @@ while True:
         print('New data!')
         higher = summed > summed_y
         equal = summed == summed_y
+        if higher == True:
+          sound_name = './meh.mp3'
+        else:
+          sound_name = './cheer.mp3'
         difference = abs(summed - summed_y)
         differencename = "gelijk" if equal else "minder"
         differencename = "meer" if higher else "minder"
@@ -57,4 +61,9 @@ while True:
 print('====================================================')
 print(f'Aantal besmettingen op {date} = {summed}')
 print(f'Verschil: {difference} {differencename}')
-playsound('./alarm.mp3')
+while True:
+  playsound(sound_name)
+  if higher == True:
+    time.sleep(3)
+  else:
+    time.sleep(60)

@@ -12,7 +12,8 @@ It's a quick-and-dirty attempt to be made aware of new statistics, so please don
 3. Ensure that you have `pandas` installed: `pip install pandas`
 4. Ensure that you have `requests` installed: `pip install requests`
 5. Clone this repository.
-6. Download an alarm MP3 file from e.g. https://www.fesliyanstudios.com/royalty-free-sound-effects-download/alarm-203 and add it to the folder where you cloned the repository, as `alarm.mp3`.
+6. Download a `cheer.mp3` file from e.g. https://freesound.org/people/Johanneskristjansson/sounds/371339/ and add it to the folder where you cloned the repository.
+7. Do the same for a `meh.mp3` file e.g. https://freesound.org/people/UncleSigmund/sounds/30988/
 
 ## Running the notifier
 1. Run the script: `python covid.py`. Be nice and only do so when it's likely that new numbers appear, say after 1.30PM Dutch time.
