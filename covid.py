@@ -27,6 +27,7 @@ differencename = ""
 # Loop
 while True:
     print('====================================================')
+    print(f'Time: {current_time}')
     if current_time > 1414:
       print('Getting new data')
       r = requests.get(url,data=params)
