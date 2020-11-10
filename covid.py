@@ -15,7 +15,6 @@ today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(hours=24)
 date = today.strftime("%Y-%m-%d") # e.g. '2020-10-20'
 yesterday = yesterday.strftime("%Y-%m-%d") # e.g. '2020-10-19
-current_time = int(today.strftime("%H%M"))
 
 # Prepare some variables
 summed = 0
@@ -26,6 +25,8 @@ differencename = ""
 
 # Loop
 while True:
+    time_now_object = datetime.datetime.now()
+    current_time = int(time_now_object.strftime("%H%M"))
     print('====================================================')
     print(f'Time: {current_time}')
     if current_time > 1414:
