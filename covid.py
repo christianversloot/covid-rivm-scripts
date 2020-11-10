@@ -15,6 +15,7 @@ today = datetime.datetime.now()
 yesterday = today - datetime.timedelta(hours=24)
 date = today.strftime("%Y-%m-%d") # e.g. '2020-10-20'
 yesterday = yesterday.strftime("%Y-%m-%d") # e.g. '2020-10-19
+current_time = int(today.strftime("%H%M"))
 
 # Prepare some variables
 summed = 0
@@ -26,37 +27,41 @@ differencename = ""
 # Loop
 while True:
     print('====================================================')
-    print('Getting new data')
-    r = requests.get(url,data=params)
-    if r.ok:
-      print('Data received')
-      lgt = 0
-      data = r.content.decode('utf8')
-      df = pd.read_csv(io.StringIO(data), delimiter=';')
-      df_y = df[df['Date_of_publication'] == yesterday]
-      df = df[df['Date_of_publication'] == date]
-      summed = df['Total_reported'].sum()
-      summed_y = df_y['Total_reported'].sum()
-      print(f'Check - number of rows: today = {summed} / yesterday = {summed_y}')
-      lgt = len(df)
-      if lgt > 0:
-        print('New data!')
-        higher = summed > summed_y
-        equal = summed == summed_y
-        if higher == True:
-          sound_name = './meh.mp3'
+    if current_time > 1414:
+      print('Getting new data')
+      r = requests.get(url,data=params)
+      if r.ok:
+        print('Data received')
+        lgt = 0
+        data = r.content.decode('utf8')
+        df = pd.read_csv(io.StringIO(data), delimiter=';')
+        df_y = df[df['Date_of_publication'] == yesterday]
+        df = df[df['Date_of_publication'] == date]
+        summed = df['Total_reported'].sum()
+        summed_y = df_y['Total_reported'].sum()
+        print(f'Check - number of rows: today = {summed} / yesterday = {summed_y}')
+        lgt = len(df)
+        if lgt > 0:
+          print('New data!')
+          higher = summed > summed_y
+          equal = summed == summed_y
+          if higher == True:
+            sound_name = './meh.mp3'
+          else:
+            sound_name = './cheer.mp3'
+          difference = abs(summed - summed_y)
+          differencename = "gelijk" if equal else "minder"
+          differencename = "meer" if higher else "minder"
+          break
         else:
-          sound_name = './cheer.mp3'
-        difference = abs(summed - summed_y)
-        differencename = "gelijk" if equal else "minder"
-        differencename = "meer" if higher else "minder"
-        break
+          print('Nothing known, sleeping 60 seconds')
+          time.sleep(60)
       else:
-        print('Nothing known, sleeping 60 seconds')
-        time.sleep(60)
+          print('Nothing known, sleeping 60 seconds')
+          time.sleep(60)
     else:
-        print('Nothing known, sleeping 60 seconds')
-        time.sleep(60)
+      print('It isn\'t time yet, sleeping 5 seconds')
+      time.sleep(5)
 
 print('====================================================')
 print(f'Aantal besmettingen op {date} = {summed}')
