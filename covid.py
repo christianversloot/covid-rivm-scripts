@@ -30,6 +30,8 @@ while True:
     print('====================================================')
     print(f'Time: {current_time}')
     if current_time > 1414:
+      print('New data should be available, sleeping 5 seconds to allow for upload')
+      time.sleep(5)
       print('Getting new data')
       r = requests.get(url,data=params)
       if r.ok:
@@ -56,8 +58,8 @@ while True:
           differencename = "meer" if higher else "minder"
           break
         else:
-          print('Nothing known, sleeping 60 seconds')
-          time.sleep(60)
+          print('Nothing known, sleeping 5 seconds')
+          time.sleep(5)
       else:
           print('Nothing known, sleeping 60 seconds')
           time.sleep(60)
