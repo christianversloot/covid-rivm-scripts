@@ -16,7 +16,7 @@ It's a quick-and-dirty attempt to be made aware of new statistics, so please don
 7. Do the same for a `meh.mp3` file e.g. https://freesound.org/people/UncleSigmund/sounds/30988/
 
 ## Running the notifier
-1. Run the script: `python covid.py`. Be nice and only do so when it's likely that new statistics appear, say after 2.10PM Dutch time (new statistics normally appear at 2.15PM).
+1. Run the script: `python covid.py`.
 2. The script will automatically stop when new numbers get in and you will be notified by sound.
 
 ## Running the by-municipality reporter
