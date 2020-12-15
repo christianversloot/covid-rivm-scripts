@@ -29,7 +29,7 @@ while True:
     current_time = int(time_now_object.strftime("%H%M"))
     print('====================================================')
     print(f'Time: {current_time}')
-    if current_time > 1414:
+    if current_time > 1514:
       print('New data should be available, sleeping 5 seconds to allow for upload')
       time.sleep(5)
       print('Getting new data')
